@@ -4,6 +4,20 @@
   </div>
 </template>
 
+<script setup>
+import { onMounted } from 'vue';
+
+// For GitHub Pages routing
+onMounted(() => {
+  // Check if the URL contains the redirect pattern from our 404.html
+  const redirect = sessionStorage.redirect;
+  delete sessionStorage.redirect;
+  if (redirect && redirect !== location.href) {
+    history.replaceState(null, null, redirect);
+  }
+});
+</script>
+
 <style>
 /* Global styles */
 body {

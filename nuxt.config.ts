@@ -19,7 +19,10 @@ export default defineNuxtConfig({
         },
       ],
     },
+    // For GitHub Pages
     baseURL: "/pizza-app-wireframes/",
+    // This is crucial for proper asset loading
+    buildAssetsDir: "/_nuxt/",
   },
 
   // Configure Nuxt to generate static output
@@ -36,6 +39,25 @@ export default defineNuxtConfig({
   // Disable prerendering to avoid 404 errors
   experimental: {
     payloadExtraction: false
+  },
+
+  // Important for GitHub Pages
+  router: {
+    options: {
+      hashMode: true
+    }
+  },
+
+  vite: {
+    // For proper asset paths
+    build: {
+      assetsDir: "_nuxt",
+      rollupOptions: {
+        output: {
+          assetFileNames: "_nuxt/[name].[hash].[ext]"
+        }
+      }
+    },
   },
 
   compatibilityDate: "2025-04-22",
