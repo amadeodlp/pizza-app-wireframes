@@ -19,17 +19,23 @@ export default defineNuxtConfig({
         },
       ],
     },
-    baseURL: "https://amadeodlp.github.io/pizza-app-wireframes/",
+    baseURL: "/pizza-app-wireframes/",
   },
 
   // Configure Nuxt to generate static output
   ssr: false,
   nitro: {
     preset: "static",
-    prerender: {
-      crawlLinks: true,
-      routes: ["/", "/PizzaMenu", "/OrderDetails", "/PizzaCustomization"],
-    },
+  },
+
+  // For static site generation
+  generate: {
+    routes: ["/", "/PizzaMenu", "/OrderDetails", "/PizzaCustomization"]
+  },
+
+  // Disable prerendering to avoid 404 errors
+  experimental: {
+    payloadExtraction: false
   },
 
   compatibilityDate: "2025-04-22",
