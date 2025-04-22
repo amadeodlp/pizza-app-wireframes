@@ -1,0 +1,1 @@
+import{g as r,c as a,o as n,a as s,t as o}from"./DJsdpDo5.js";const i={class:"flex items-center space-x-1"},c={class:"font-medium"},l=r({__name:"PriceDisplay",props:{price:{type:[Number,String],required:!0}},setup(t){return(p,e)=>(n(),a("div",i,[s("span",c,o(t.price),1),e[0]||(e[0]=s("span",{class:"font-medium text-gray-900"},"ILS",-1))]))}});export{l as _};
